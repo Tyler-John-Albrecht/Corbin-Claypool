@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Corbin Claypool | Loan Officer — Fresno, CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0B1D33;
+    --navy2:  #112340;
+    --gold:   #C9A84C;
+    --gold2:  #E8C76A;
+    --offwhite: #F5F3EE;
+    --gray:   #8A93A0;
+    --light:  #D8DCE3;
+    --white:  #FFFFFF;
+    --text:   #1E2A38;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: transparent;
+    transition: background 0.35s, box-shadow 0.35s;
+  }
+  nav.scrolled {
+    background: rgba(11, 29, 51, 0.97);
+    box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+    padding: 10px 22px !important;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--gold2) !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, #1a3a5c 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    width: 100%;
+    padding-top: 100px;
+  }
+  .hero-text {}
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 2px;
+    background: var(--gold);
+  }
+  .hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .hero-h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 40px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  /* hero photo side */
+  .hero-photo-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-photo-frame {
+    position: relative;
+    width: 380px;
+    height: 480px;
+  }
+  .hero-photo-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--gold) 0%, rgba(201,168,76,0.3) 100%);
+    border-radius: 8px;
+    transform: translate(14px, 14px);
+  }
+  .hero-photo-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 8px;
+    filter: grayscale(15%);
+  }
+  .hero-photo-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    z-index: 2;
+    background: var(--white);
+    border-radius: 8px;
+    padding: 14px 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .badge-icon {
+    width: 40px; height: 40px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+  .badge-text strong {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .badge-text span {
+    font-size: 0.7rem;
+    color: var(--gray);
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--offwhite);
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .trust-icon { font-size: 1.1rem; }
+  .trust-divider {
+    width: 1px; height: 24px;
+    background: var(--light);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 48px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--gold);
+  }
+  .section-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  .section-sub {
+    color: var(--gray);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 540px;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img-accent {
+    position: absolute;
+    top: -16px; left: -16px;
+    width: 60%; height: 60%;
+    border: 3px solid var(--gold);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+  .about-img {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    object-fit: cover;
+    height: 460px;
+  }
+  .about-content {}
+  .about-body {
+    color: #4A5568;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .about-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .about-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .about-list li::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .nmls-badge {
+    display: inline-block;
+    background: var(--offwhite);
+    border: 1px solid var(--light);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--navy); }
+  #services .section-h2 { color: var(--white); }
+  #services .section-sub { color: rgba(255,255,255,0.55); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .service-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 8px;
+    padding: 36px 28px;
+    transition: background 0.3s, border-color 0.3s, transform 0.2s;
+  }
+  .service-card:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .service-desc {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+  }
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: gap 0.2s;
+  }
+  .service-link:hover { gap: 10px; }
+
+  /* ── PROCESS ── */
+  #process { background: var(--offwhite); }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(12.5% + 20px);
+    right: calc(12.5% + 20px);
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), rgba(201,168,76,0.3));
+  }
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+  }
+  .step-num {
+    width: 56px; height: 56px;
+    background: var(--navy);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    border: 3px solid var(--gold);
+  }
+  .step-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .step-desc {
+    font-size: 0.82rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--white); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .testimonial-card {
+    background: var(--offwhite);
+    border-radius: 8px;
+    padding: 32px 28px;
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.25;
+    position: absolute;
+    top: 8px; left: 20px;
+    line-height: 1;
+  }
+  .testimonial-stars {
+    color: var(--gold);
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+  }
+  .testimonial-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #4A5568;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .testimonial-author strong {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .testimonial-author span {
+    font-size: 0.78rem;
+    color: var(--gray);
+  }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--navy2); }
+  #education .section-h2 { color: var(--white); }
+  #education .section-sub { color: rgba(255,255,255,0.55); }
+  .education-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 60px;
+    align-items: center;
+  }
+  .edu-content {}
+  .edu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .edu-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .edu-icon {
+    width: 44px; height: 44px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .edu-text strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .edu-text span {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+  .edu-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .channel-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 8px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .channel-card:hover { background: rgba(201,168,76,0.08); border-color: var(--gold); }
+  .channel-icon { font-size: 1.6rem; }
+  .channel-info strong {
+    display: block;
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .channel-info span { font-size: 0.78rem; color: rgba(255,255,255,0.45); }
+  .channel-arrow { margin-left: auto; color: var(--gold); font-size: 1.1rem; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--white); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-info {}
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+  .contact-detail-icon {
+    width: 40px; height: 40px;
+    background: var(--offwhite);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .contact-detail a { color: var(--text); text-decoration: none; }
+  .contact-detail a:hover { color: var(--gold); }
+  .contact-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .social-btn {
+    width: 44px; height: 44px;
+    border: 1px solid var(--light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    color: var(--text);
+  }
+  .social-btn:hover { border-color: var(--gold); background: var(--offwhite); }
+  .contact-form {}
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid var(--light);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-submit {
+    width: 100%;
+    padding: 15px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .form-submit:hover { background: var(--gold); color: var(--navy); transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #07121F;
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-legal {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .footer-nmls {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    text-align: right;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 18px 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 0 24px; padding-top: 110px; }
+    .hero-photo-wrap { display: none; }
+    .hero-stats { gap: 24px; }
+    .about-grid,
+    .contact-grid,
+    .education-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-img-wrap { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .process-steps::before { display: none; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .trust-bar { padding: 20px 24px; gap: 20px; }
+    .trust-divider { display: none; }
+    footer { flex-direction: column; text-align: center; padding: 32px 24px; }
+    .footer-nmls { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Corbin <span>Claypool</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-lines"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Fresno, CA · NMLS #1227308</div>
+      <h1 class="hero-h1">Your Home.<br/>Your <em>Investment.</em><br/>Your Advantage.</h1>
+      <p class="hero-sub">Corbin Claypool helps Fresno families buy smarter, build wealth through real estate, and navigate the mortgage process without the confusion.</p>
+      <div class="hero-actions">
+        <a href="https://www.veromortgage.com/corbin/" target="_blank" class="btn-primary">Apply Now</a>
+        <a href="#about" class="btn-ghost">Learn More</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">6K+</div>
+          <div class="stat-label">Instagram Followers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">CA</div>
+          <div class="stat-label">Licensed & Local</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">Vero</div>
+          <div class="stat-label">Mortgage Partner</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <div class="hero-photo-bg"></div>
+        <!-- REPLACE src with Corbin's headshot URL or uploaded image -->
+        <img
+          class="hero-photo-img"
+          src="https://veromortgage.com/wp-content/uploads/2024/01/Corbin-Claypool-Headshot.jpg"
+          alt="Corbin Claypool — Loan Officer, Fresno CA"
+          onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#0B1D33)';this.removeAttribute('src')"
+        />
+        <div class="hero-photo-badge">
+          <div class="badge-icon">🏠</div>
+          <div class="badge-text">
+            <strong>Vero Mortgage</strong>
+            <span>Loan Officer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">🏦</span> Conventional Loans</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><span class="trust-icon">🇺🇸</span> FHA & VA Loans</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><span class="trust-icon">📈</span> Real Estate Investing</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><span class="trust-icon">🎓</span> Homebuyer Education</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><span class="trust-icon">📍</span> Serving Fresno & Central Valley</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-accent"></div>
+        <!-- Use the key photo from the client's social media -->
+        <img
+          class="about-img"
+          src="https://everythingaboutmortgage.com/wp-content/uploads/2023/12/original-D6FBDEA1-D9BD-46A7-8720-4BBA22053783.jpeg"
+          alt="Corbin Claypool with clients"
+          onerror="this.style.background='#e8e8e8';this.removeAttribute('src')"
+        />
+      </div>
+      <div class="about-content">
+        <div class="section-eyebrow">About Corbin</div>
+        <h2 class="section-h2">More Than a Loan Officer. A Trusted Advisor.</h2>
+        <p class="about-body">
+          Corbin Claypool is a Fresno-based loan officer at Vero Mortgage with a mission that goes beyond closing deals — he's on a mission to give every homebuyer and homeowner access to the education they need to make confident, wealth-building decisions.
+        </p>
+        <p class="about-body">
+          When Corbin saw a gap in real estate education in the Central Valley, he built <em>Everything About Mortgage</em> to fill it. Whether it's jiu jitsu, family, or real estate investing — he shows up with the same intensity for everything he does.
+        </p>
+        <ul class="about-list">
+          <li>Loan Officer at Vero Mortgage — Fresno, CA</li>
+          <li>Founder of Everything About Mortgage</li>
+          <li>Real estate investor & educator</li>
+          <li>Licensed in California</li>
+          <li>Specializes in first-time buyers & investors</li>
+        </ul>
+        <a href="https://www.veromortgage.com/corbin/" target="_blank" class="btn-primary">View Full Profile</a>
+        <div class="nmls-badge">NMLS #1227308 · Licensed in CA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-eyebrow">What I Do</div>
+    <h2 class="section-h2">From First Home to Investment Portfolio</h2>
+    <p class="section-sub">Whether you're buying your first home or building a real estate portfolio, I'll help you find the right loan and make the right move.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🏡</span>
+        <div class="service-title">Home Purchase Loans</div>
+        <p class="service-desc">First-time buyer? Upsizing? I'll walk you through every loan option — conventional, FHA, VA, and more — and get you to closing without the headaches.</p>
+        <a href="#contact" class="service-link">Get Pre-Qualified →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔄</span>
+        <div class="service-title">Refinancing</div>
+        <p class="service-desc">Lower your rate, pull cash out, or shorten your term. I'll run the numbers honestly and only recommend a refi when it actually makes sense for you.</p>
+        <a href="#contact" class="service-link">Run My Numbers →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📈</span>
+        <div class="service-title">Investment Property Loans</div>
+        <p class="service-desc">From your first rental to a growing portfolio, I structure loans that maximize cash flow and set your investment up to perform from day one.</p>
+        <a href="#contact" class="service-link">Start Investing →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🇺🇸</span>
+        <div class="service-title">VA Loans</div>
+        <p class="service-desc">Serving those who've served. VA loans offer zero down payment and competitive rates — and I'll make sure you get every benefit you've earned.</p>
+        <a href="#contact" class="service-link">VA Eligibility Check →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏗️</span>
+        <div class="service-title">FHA Loans</div>
+        <p class="service-desc">Lower credit score or smaller down payment? FHA loans open doors. I'll help you qualify and get into the home you deserve.</p>
+        <a href="#contact" class="service-link">Check FHA Options →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎓</span>
+        <div class="service-title">Homebuyer Education</div>
+        <p class="service-desc">Free resources, videos, and one-on-one time to make sure you actually understand what you're signing. Knowledge is the best closing gift.</p>
+        <a href="#education" class="service-link">Start Learning →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-h2">From Application to Keys — The Simple Version</h2>
+    <p class="section-sub">No jargon. No surprises. Just a clear path from where you are to closing day.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-title">Free Consultation</div>
+        <p class="step-desc">We talk through your goals, timeline, and finances. No pressure, no commitment — just clarity.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-title">Get Pre-Approved</div>
+        <p class="step-desc">I pull your numbers, find the right loan program, and get you a pre-approval letter that makes sellers take you seriously.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-title">Find Your Home</div>
+        <p class="step-desc">Shop with confidence knowing exactly what you can afford. I stay available throughout the hunt to answer every question.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-title">Close & Celebrate</div>
+        <p class="step-desc">I handle the loan side so you can focus on moving. Clear communication, no last-minute surprises, keys in hand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-eyebrow">Client Stories</div>
+    <h2 class="section-h2">What Real Clients Are Saying</h2>
+    <p class="section-sub">Real estate is the biggest financial decision most people make. Here's what they say about working with Corbin.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Corbin made buying our first home so much less intimidating. He explained everything in plain English and was always available when we had questions. We closed without a single surprise."</p>
+        <div class="testimonial-author">
+          <strong>First-Time Buyer</strong>
+          <span>Fresno, CA</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I've bought two investment properties with Corbin's help. He doesn't just push loans — he actually helps you think through the numbers. That's rare in this industry."</p>
+        <div class="testimonial-author">
+          <strong>Real Estate Investor</strong>
+          <span>Central Valley, CA</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Used Corbin for our refi and got a much better rate than we expected. Fast, honest, and kept us in the loop every step. Will absolutely go back to him for our next purchase."</p>
+        <div class="testimonial-author">
+          <strong>Refinance Client</strong>
+          <span>Fresno, CA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-eyebrow">Free Education</div>
+    <h2 class="section-h2">The Knowledge You Deserve — For Free</h2>
+    <p class="section-sub">Most lenders tell you what to sign. Corbin tells you why. Explore free guides, videos, and resources to make better decisions with your money.</p>
+    <div class="education-grid">
+      <div class="edu-content">
+        <ul class="edu-list">
+          <li>
+            <div class="edu-icon">📊</div>
+            <div class="edu-text">
+              <strong>Housing Market Updates</strong>
+              <span>Weekly breakdowns of Fresno and Central Valley market trends — in plain English, not Wall Street speak.</span>
+            </div>
+          </li>
+          <li>
+            <div class="edu-icon">🏠</div>
+            <div class="edu-text">
+              <strong>Homebuyer Education</strong>
+              <span>Free courses and guides covering the entire buying process — from credit score basics to closing day.</span>
+            </div>
+          </li>
+          <li>
+            <div class="edu-icon">💰</div>
+            <div class="edu-text">
+              <strong>Real Estate Investing 101</strong>
+              <span>How to analyze a deal, finance your first rental, and start building wealth through property.</span>
+            </div>
+          </li>
+          <li>
+            <div class="edu-icon">🧮</div>
+            <div class="edu-text">
+              <strong>Mortgage Calculators</strong>
+              <span>Run your own numbers — payment estimates, affordability, refinance breakeven, and more.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="edu-channels">
+        <a href="https://everythingaboutmortgage.com" target="_blank" class="channel-card">
+          <span class="channel-icon">🌐</span>
+          <div class="channel-info">
+            <strong>Everything About Mortgage</strong>
+            <span>Free guides, calculators, and housing market news</span>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+        <a href="http://Youtube.com/CorbinClaypool" target="_blank" class="channel-card">
+          <span class="channel-icon">▶️</span>
+          <div class="channel-info">
+            <strong>YouTube Channel</strong>
+            <span>Video education on mortgages, investing & more</span>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+        <a href="http://Instagram.com/CorbinClaypool" target="_blank" class="channel-card">
+          <span class="channel-icon">📸</span>
+          <div class="channel-info">
+            <strong>Instagram · @corbinclaypool</strong>
+            <span>6,020 followers · Daily real estate content</span>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+        <a href="https://everythingaboutmortgage.com/free-guides/" target="_blank" class="channel-card">
+          <span class="channel-icon">📚</span>
+          <div class="channel-info">
+            <strong>Free Guides Library</strong>
+            <span>Download guides for buyers, owners & investors</span>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-eyebrow">Get in Touch</div>
+        <h2 class="section-h2">Ready to Make Your Move?</h2>
+        <p class="section-sub" style="margin-bottom:40px;">Whether you're buying, refinancing, or just want to understand your options — reach out. No pressure, no sales pitch. Just straight answers.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <a href="tel:5593135819">559-313-5819</a>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📧</div>
+          <a href="mailto:corbin@veromortgage.com">corbin@veromortgage.com</a>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <span>9499 N Fort Washington Rd, Suite 103<br/>Fresno, CA 93730</span>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🏢</div>
+          <a href="https://www.veromortgage.com/corbin/" target="_blank">veromortgage.com/corbin</a>
+        </div>
+        <div class="contact-social">
+          <a href="http://Instagram.com/CorbinClaypool" target="_blank" class="social-btn" title="Instagram">📸</a>
+          <a href="http://Youtube.com/CorbinClaypool" target="_blank" class="social-btn" title="YouTube">▶️</a>
+          <a href="https://everythingaboutmortgage.com" target="_blank" class="social-btn" title="Website">🌐</a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="john@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" placeholder="(559) 000-0000" />
+          </div>
+          <div class="form-group">
+            <label>I'm Looking To...</label>
+            <select>
+              <option value="">Select one</option>
+              <option>Buy my first home</option>
+              <option>Purchase another property</option>
+              <option>Refinance my current home</option>
+              <option>Buy an investment property</option>
+              <option>Just exploring my options</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message (optional)</label>
+            <textarea placeholder="Tell me a bit about your situation..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#hero" class="footer-logo">Corbin <span>Claypool</span></a>
+  <div class="footer-legal">
+    © 2026 Corbin Claypool · Loan Officer at Vero Mortgage<br/>
+    NMLS #1227308 · Licensed in California
+  </div>
+  <div class="footer-nmls">
+    9499 N Fort Washington Rd, Suite 103<br/>
+    Fresno, CA 93730
+  </div>
+</footer>
+
+<script>
+  // Sticky nav on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Form submit handler
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = '#2D7A4A';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+
+</body>
+</html>
