@@ -100,16 +100,20 @@
     position: relative;
     display: flex;
     flex-direction: column;
-  }
-  .hero-content-wrap {
-    flex: 1;
-    display: flex;
-    align-items: center;
     overflow: hidden;
   }
-  /* Ticker sits naturally at bottom of flex column — no absolute needed */
+  .hero-spacer {
+    flex: 1;
+    min-height: 5rem;
+  }
+  .hero-content-wrap {
+    position: relative;
+    z-index: 10;
+  }
   #hero .stat-ticker {
     flex-shrink: 0;
+    position: relative;
+    z-index: 10;
   }
   .hero-grid-lines {
     position: absolute;
@@ -131,7 +135,7 @@
   .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 48px 24px;
+    padding: 0 48px 32px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
@@ -973,6 +977,10 @@
 <section id="hero">
   <div class="hero-grid-lines"></div>
   <div class="hero-glow"></div>
+
+  <!-- Spacer absorbs space above content, headline never clips under nav -->
+  <div class="hero-spacer"></div>
+
   <div class="hero-content-wrap">
     <div class="hero-inner">
       <div class="hero-text">
