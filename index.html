@@ -93,6 +93,72 @@
   }
   .nav-cta:hover { background: var(--gold2) !important; transform: translateY(-1px); }
 
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 110;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 105;
+    background: rgba(11, 29, 51, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 90px 24px 32px;
+    transform: translateY(-100%);
+    transition: transform 0.35s ease;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .mobile-menu.open { transform: translateY(0); }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 14px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    border-radius: 4px;
+    border-bottom: none !important;
+    margin-top: 12px;
+    font-weight: 700 !important;
+  }
+
   /* ── HERO ── */
   #hero {
     height: 100vh;
@@ -945,6 +1011,8 @@
     #sticky-apply { display: flex; }
     nav { padding: 18px 24px; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { display: flex; }
     section { padding: 72px 24px; }
     .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 110px 24px 100px; }
     .hero-photo-wrap { display: none; }
@@ -969,14 +1037,28 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">Corbin <span>Claypool</span></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
   </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#process">Process</a>
+  <a href="#education">Education</a>
+  <a href="#contact" class="mobile-menu-cta">Let's Talk</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -1466,7 +1548,7 @@
     <strong>Ready to get started?</strong>
     No setup fee. Pre-approval in 48 hrs.
   </div>
-  <a href="https://www.veromortgage.com/corbin/" target="_blank" class="sticky-apply-btn">Apply Now</a>
+  <a href="#contact" class="sticky-apply-btn">Apply Now</a>
 </div>
 
 <script>
@@ -1529,6 +1611,25 @@
       e.target.reset();
     }, 3000);
   }
+
+  // ── Mobile hamburger menu ──
+  (function() {
+    const hamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+      });
+      // Close menu when any link is tapped
+      mobileMenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+        });
+      });
+    }
+  })();
 </script>
 
 </body>
