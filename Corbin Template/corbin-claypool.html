@@ -22,7 +22,7 @@
     --text:   #1E2A38;
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
     font-family: 'Inter', sans-serif;
@@ -249,7 +249,7 @@
     inset: 0;
     background: linear-gradient(135deg, var(--gold) 0%, rgba(201,168,76,0.3) 100%);
     border-radius: 8px;
-    transform: translate(14px, 14px);
+    transform: translate(-14px, 14px);
   }
   .hero-photo-img {
     position: relative;
@@ -784,13 +784,15 @@
   .marquee-viewport {
     overflow: hidden;
     width: 100%;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: none;
+    mask-image: none;
   }
   .marquee-track {
     display: flex;
     flex-wrap: nowrap;
     will-change: transform;
+    transform: translateX(0);
+    min-width: max-content;
   }
 
   /* ── STAT TICKER ── */
@@ -803,6 +805,7 @@
     z-index: 20;
     width: 100%;
     margin-top: auto;
+    overflow: hidden;
   }
   .stat-pill {
     display: flex;
