@@ -94,20 +94,21 @@
 
   /* ── HERO ── */
   #hero {
-    min-height: 100vh;
+    height: 100vh;
     background: linear-gradient(rgba(11,29,51,0.72), rgba(11,29,51,0.72)), url('hero-bg.png') center/cover no-repeat;
     position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-content-wrap {
+    flex: 1;
     display: flex;
     align-items: center;
     overflow: hidden;
   }
-  .hero-content-wrap {
-    width: 100%;
-  }
-  /* Ticker anchored to absolute bottom of hero */
+  /* Ticker sits naturally at bottom of flex column — no absolute needed */
   #hero .stat-ticker {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
+    flex-shrink: 0;
   }
   .hero-grid-lines {
     position: absolute;
@@ -129,7 +130,7 @@
   .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 48px 100px;
+    padding: 80px 48px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
