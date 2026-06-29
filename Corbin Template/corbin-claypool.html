@@ -95,20 +95,17 @@
 
   /* ── HERO ── */
   #hero {
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(rgba(11,29,51,0.72), rgba(11,29,51,0.72)), url('hero-bg.png') center/cover no-repeat;
     position: relative;
     display: flex;
     flex-direction: column;
     overflow: hidden;
   }
-  .hero-spacer {
-    flex: 1;
-    min-height: 5rem;
-  }
   .hero-content-wrap {
-    position: relative;
-    z-index: 10;
+    flex: 1;
+    display: flex;
+    align-items: center;
   }
   #hero .stat-ticker {
     flex-shrink: 0;
@@ -135,7 +132,7 @@
   .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 48px 32px;
+    padding: 80px 48px 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
@@ -977,10 +974,6 @@
 <section id="hero">
   <div class="hero-grid-lines"></div>
   <div class="hero-glow"></div>
-
-  <!-- Spacer absorbs space above content, headline never clips under nav -->
-  <div class="hero-spacer"></div>
-
   <div class="hero-content-wrap">
     <div class="hero-inner">
       <div class="hero-text">
