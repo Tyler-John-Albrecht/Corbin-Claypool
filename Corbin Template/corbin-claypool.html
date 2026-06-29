@@ -64,13 +64,24 @@
   .nav-links a {
     color: rgba(255,255,255,0.8);
     text-decoration: none;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     transition: color 0.2s;
+    position: relative;
+    padding-bottom: 4px;
   }
-  .nav-links a:hover { color: var(--gold); }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
   .nav-cta {
     background: var(--gold) !important;
     color: var(--navy) !important;
@@ -87,14 +98,16 @@
     background: linear-gradient(rgba(11,29,51,0.72), rgba(11,29,51,0.72)), url('hero-bg.png') center/cover no-repeat;
     position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .hero-content-wrap {
-    flex: 1;
-    display: flex;
     align-items: center;
     overflow: hidden;
+  }
+  .hero-content-wrap {
+    width: 100%;
+  }
+  /* Ticker anchored to absolute bottom of hero */
+  #hero .stat-ticker {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
   }
   .hero-grid-lines {
     position: absolute;
@@ -116,13 +129,12 @@
   .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 48px;
+    padding: 100px 48px 100px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
     width: 100%;
-    padding-top: 100px;
   }
   .hero-text {}
   .hero-eyebrow {
@@ -923,7 +935,7 @@
     nav { padding: 18px 24px; }
     .nav-links { display: none; }
     section { padding: 72px 24px; }
-    .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 0 24px; padding-top: 110px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 110px 24px 100px; }
     .hero-photo-wrap { display: none; }
     .hero-stats { gap: 24px; }
     .about-grid,
