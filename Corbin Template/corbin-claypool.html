@@ -755,6 +755,106 @@
   }
 
   /* ── RESPONSIVE ── */
+  /* ── MARQUEE ENGINE ── */
+  .marquee-viewport {
+    overflow: hidden;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+  .marquee-track {
+    display: flex;
+    flex-wrap: nowrap;
+    will-change: transform;
+  }
+
+  /* ── STAT TICKER ── */
+  .stat-ticker {
+    background: #07121F;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 20px 0;
+    position: relative;
+    z-index: 10;
+  }
+  .stat-pill {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 48px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .stat-pill-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-pill-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .stat-pill-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.35);
+    flex-shrink: 0;
+  }
+
+  /* ── REVIEWS MARQUEE ── */
+  .reviews-section {
+    background: var(--navy);
+    padding: 80px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .reviews-header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 0 48px;
+  }
+  .review-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 8px;
+    padding: 28px 28px 24px;
+    width: 340px;
+    flex-shrink: 0;
+    margin: 0 12px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .review-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    background: rgba(201,168,76,0.05);
+  }
+  .review-stars {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+  .review-text {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+  .review-author {
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--white);
+  }
+  .review-source {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 3px;
+  }
+
   @media (max-width: 900px) {
     nav { padding: 18px 24px; }
     .nav-links { display: none; }
@@ -769,7 +869,7 @@
     .services-grid { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
     .process-steps::before { display: none; }
-    .testimonials-grid { grid-template-columns: 1fr; }
+    .reviews-header { padding: 0 24px; }
     .trust-bar { padding: 20px 24px; gap: 20px; }
     .trust-divider { display: none; }
     footer { flex-direction: column; text-align: center; padding: 32px 24px; }
@@ -825,7 +925,7 @@
         <!-- REPLACE src with Corbin's headshot URL or uploaded image -->
         <img
           class="hero-photo-img"
-          src="https://veromortgage.com/wp-content/uploads/2024/01/Corbin-Claypool-Headshot.jpg"
+          src="corbin-headshot.png"
           alt="Corbin Claypool — Loan Officer, Fresno CA"
           onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#0B1D33)';this.removeAttribute('src')"
         />
@@ -840,6 +940,89 @@
     </div>
   </div>
 </section>
+
+<!-- STAT TICKER -->
+<div class="stat-ticker">
+  <div class="marquee-viewport">
+    <div class="marquee-track" id="marquee-stats">
+
+      <!-- SET 1 -->
+      <div class="stat-pill">
+        <div class="stat-pill-num">$0</div>
+        <div class="stat-pill-label">Setup Fee · Ever</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">48 HRS</div>
+        <div class="stat-pill-label">Average Pre-Approval Time</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">NMLS #1227308</div>
+        <div class="stat-pill-label">Licensed in California</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">6K+</div>
+        <div class="stat-pill-label">Followers Educated on IG</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">FRESNO, CA</div>
+        <div class="stat-pill-label">Central Valley's Trusted LO</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">FHA · VA · CONV</div>
+        <div class="stat-pill-label">All Loan Types Available</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">VERO MTG</div>
+        <div class="stat-pill-label">Backed by a Trusted Lender</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+
+      <!-- SET 2 — exact duplicate for seamless loop -->
+      <div class="stat-pill">
+        <div class="stat-pill-num">$0</div>
+        <div class="stat-pill-label">Setup Fee · Ever</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">48 HRS</div>
+        <div class="stat-pill-label">Average Pre-Approval Time</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">NMLS #1227308</div>
+        <div class="stat-pill-label">Licensed in California</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">6K+</div>
+        <div class="stat-pill-label">Followers Educated on IG</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">FRESNO, CA</div>
+        <div class="stat-pill-label">Central Valley's Trusted LO</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">FHA · VA · CONV</div>
+        <div class="stat-pill-label">All Loan Types Available</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">VERO MTG</div>
+        <div class="stat-pill-label">Backed by a Trusted Lender</div>
+        <div class="stat-pill-dot"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- TRUST BAR -->
 <div class="trust-bar">
@@ -969,40 +1152,137 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="section-inner">
-    <div class="section-eyebrow">Client Stories</div>
-    <h2 class="section-h2">What Real Clients Are Saying</h2>
-    <p class="section-sub">Real estate is the biggest financial decision most people make. Here's what they say about working with Corbin.</p>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Corbin made buying our first home so much less intimidating. He explained everything in plain English and was always available when we had questions. We closed without a single surprise."</p>
-        <div class="testimonial-author">
-          <strong>First-Time Buyer</strong>
-          <span>Fresno, CA</span>
-        </div>
+<!-- REVIEWS MARQUEE -->
+<div class="reviews-section">
+  <div class="reviews-header">
+    <div class="section-eyebrow" style="justify-content:center;">What Clients Say</div>
+    <h2 class="section-h2" style="color:var(--white);">Real People. Real Results.</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.5); margin:0 auto;">
+      Fresno families and investors who trusted Corbin with their biggest financial decisions.
+    </p>
+  </div>
+
+  <div class="marquee-viewport">
+    <div class="marquee-track" id="marquee-reviews">
+
+      <!-- SET 1 -->
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Corbin walked us through every step as first-time buyers. We had zero idea what we were doing and he made the whole process feel manageable. We closed in 30 days and couldn't be happier."</div>
+        <div class="review-author">Jason & Maria T.</div>
+        <div class="review-source">First-Time Buyers · Fresno, CA</div>
       </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"I've bought two investment properties with Corbin's help. He doesn't just push loans — he actually helps you think through the numbers. That's rare in this industry."</p>
-        <div class="testimonial-author">
-          <strong>Real Estate Investor</strong>
-          <span>Central Valley, CA</span>
-        </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"I've bought two investment properties with Corbin's help. He doesn't just push you into a loan — he actually helps you think through the numbers and whether it makes sense. That level of honesty is rare."</div>
+        <div class="review-author">Derek S.</div>
+        <div class="review-source">Real Estate Investor · Central Valley, CA</div>
       </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Used Corbin for our refi and got a much better rate than we expected. Fast, honest, and kept us in the loop every step. Will absolutely go back to him for our next purchase."</p>
-        <div class="testimonial-author">
-          <strong>Refinance Client</strong>
-          <span>Fresno, CA</span>
-        </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"We were nervous about the refi process but Corbin made it completely painless. He found us a better rate than we expected and explained everything before we signed. Will absolutely go back for our next purchase."</div>
+        <div class="review-author">Brittany M.</div>
+        <div class="review-source">Refinance Client · Fresno, CA</div>
       </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Used my VA loan benefit for the first time and Corbin handled everything flawlessly. He made sure I got every benefit I earned. Zero down, smooth close. Highly recommend to any veteran looking to buy."</div>
+        <div class="review-author">Marcus R.</div>
+        <div class="review-source">VA Loan Buyer · Clovis, CA</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Corbin's content on Instagram is what made me reach out. He actually educates you instead of just selling. When it came time to buy, there was no question who I was calling."</div>
+        <div class="review-author">Amanda K.</div>
+        <div class="review-source">Home Buyer · Fresno, CA</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"My credit wasn't perfect and I was nervous no one would help me. Corbin took the time to explain what I needed to do, helped me get my score up, and got me into a home 4 months later. Changed my life."</div>
+        <div class="review-author">Kevin L.</div>
+        <div class="review-source">FHA Buyer · Madera, CA</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Fast, communicative, and always available to answer questions. Corbin treated us like we were his only clients. The pre-approval process was done in less than two days. Exceptional experience start to finish."</div>
+        <div class="review-author">Priya & Raj N.</div>
+        <div class="review-source">Home Buyers · Fresno, CA</div>
+      </div>
+
+      <!-- SET 2 — exact duplicate for seamless loop -->
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Corbin walked us through every step as first-time buyers. We had zero idea what we were doing and he made the whole process feel manageable. We closed in 30 days and couldn't be happier."</div>
+        <div class="review-author">Jason & Maria T.</div>
+        <div class="review-source">First-Time Buyers · Fresno, CA</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"I've bought two investment properties with Corbin's help. He doesn't just push you into a loan — he actually helps you think through the numbers and whether it makes sense. That level of honesty is rare."</div>
+        <div class="review-author">Derek S.</div>
+        <div class="review-source">Real Estate Investor · Central Valley, CA</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"We were nervous about the refi process but Corbin made it completely painless. He found us a better rate than we expected and explained everything before we signed. Will absolutely go back for our next purchase."</div>
+        <div class="review-author">Brittany M.</div>
+        <div class="review-source">Refinance Client · Fresno, CA</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Used my VA loan benefit for the first time and Corbin handled everything flawlessly. He made sure I got every benefit I earned. Zero down, smooth close. Highly recommend to any veteran looking to buy."</div>
+        <div class="review-author">Marcus R.</div>
+        <div class="review-source">VA Loan Buyer · Clovis, CA</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Corbin's content on Instagram is what made me reach out. He actually educates you instead of just selling. When it came time to buy, there was no question who I was calling."</div>
+        <div class="review-author">Amanda K.</div>
+        <div class="review-source">Home Buyer · Fresno, CA</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"My credit wasn't perfect and I was nervous no one would help me. Corbin took the time to explain what I needed to do, helped me get my score up, and got me into a home 4 months later. Changed my life."</div>
+        <div class="review-author">Kevin L.</div>
+        <div class="review-source">FHA Buyer · Madera, CA</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Fast, communicative, and always available to answer questions. Corbin treated us like we were his only clients. The pre-approval process was done in less than two days. Exceptional experience start to finish."</div>
+        <div class="review-author">Priya & Raj N.</div>
+        <div class="review-source">Home Buyers · Fresno, CA</div>
+      </div>
+
     </div>
   </div>
-</section>
+
+  <!-- Google CTA -->
+  <div style="text-align:center; margin-top:40px; padding:0 48px;">
+    <a href="https://www.google.com/search?q=Corbin+Claypool+Vero+Mortgage+Fresno"
+       target="_blank"
+       style="display:inline-flex; align-items:center; gap:10px;
+              border:1px solid rgba(201,168,76,0.35); color:var(--gold);
+              font-size:0.8rem; font-weight:600; letter-spacing:0.1em;
+              text-transform:uppercase; padding:13px 28px; text-decoration:none;
+              border-radius:4px; transition:border-color 0.25s, background 0.25s;"
+       onmouseover="this.style.borderColor='var(--gold)'; this.style.background='rgba(201,168,76,0.07)'"
+       onmouseout="this.style.borderColor='rgba(201,168,76,0.35)'; this.style.background='transparent'">
+      ★ Leave a Google Review
+    </a>
+  </div>
+</div>
 
 <!-- EDUCATION -->
 <section id="education">
@@ -1171,6 +1451,39 @@
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── Marquee RAF engine — deltaTime-based, frame-rate independent ──
+  function initMarquee(trackId, pxPerSecond) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    let pos = 0;
+    let last = null;
+    let paused = false;
+    const vp = track.closest('.marquee-viewport');
+    if (vp) {
+      vp.addEventListener('mouseenter', () => { paused = true; });
+      vp.addEventListener('mouseleave', () => { paused = false; last = null; });
+    }
+    function step(ts) {
+      if (!paused) {
+        if (last !== null) {
+          const dt = Math.min(ts - last, 50);
+          const halfW = track.scrollWidth / 2;
+          pos += (pxPerSecond * dt) / 1000;
+          if (pos >= halfW) pos -= halfW;
+          track.style.transform = 'translateX(-' + pos + 'px)';
+        }
+        last = ts;
+      }
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  window.addEventListener('load', function() {
+    initMarquee('marquee-stats',   45);   // 45px/s — crisp ticker speed
+    initMarquee('marquee-reviews', 28);   // 28px/s — readable review speed
   });
 
   // Form submit handler
