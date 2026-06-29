@@ -99,7 +99,8 @@
     width: 100%;
     position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
     overflow: hidden;
     background: linear-gradient(rgba(11,29,51,0.72), rgba(11,29,51,0.72)), url('hero-bg.png') center/cover no-repeat;
   }
@@ -107,6 +108,9 @@
     position: relative;
     z-index: 10;
     width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
   }
   .hero-grid-lines {
     position: absolute;
@@ -128,14 +132,18 @@
   .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 48px 80px;
+    padding: 120px 48px 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
     width: 100%;
   }
-  .hero-text {}
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -790,36 +798,38 @@
     background: #07121F;
     border-top: 1px solid rgba(201,168,76,0.15);
     border-bottom: 1px solid rgba(201,168,76,0.15);
-    padding: 28px 0;
+    padding: 24px 0;
     position: relative;
-    z-index: 10;
+    z-index: 20;
+    width: 100%;
+    margin-top: auto;
   }
   .stat-pill {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 0 48px;
+    gap: 16px;
+    padding: 0 40px;
     white-space: nowrap;
     flex-shrink: 0;
   }
   .stat-pill-num {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.85rem;
     font-weight: 700;
     color: var(--gold);
     line-height: 1;
   }
   .stat-pill-label {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.5);
   }
   .stat-pill-dot {
-    width: 5px; height: 5px;
+    width: 6px; height: 6px;
     border-radius: 50%;
-    background: rgba(201,168,76,0.35);
+    background: rgba(201,168,76,0.3);
     flex-shrink: 0;
   }
 
@@ -1002,10 +1012,9 @@
       </div>
     </div>
   </div>
-</section>
 
-<!-- STAT TICKER — standalone full-width band directly below hero -->
-<div class="stat-ticker">
+  <!-- STAT TICKER — inside hero, pinned to bottom via margin-top:auto -->
+  <div class="stat-ticker">
     <div class="marquee-viewport">
       <div class="marquee-track" id="marquee-stats">
         <div class="stat-pill"><div class="stat-pill-num">$0</div><div class="stat-pill-label">Setup Fee · Ever</div><div class="stat-pill-dot"></div></div>
@@ -1025,6 +1034,7 @@
       </div>
     </div>
   </div>
+</section>
 
 
 <!-- TRUST BAR -->
