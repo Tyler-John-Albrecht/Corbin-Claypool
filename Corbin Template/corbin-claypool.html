@@ -99,7 +99,7 @@
     width: 100%;
     position: relative;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     overflow: hidden;
     background: linear-gradient(rgba(11,29,51,0.72), rgba(11,29,51,0.72)), url('hero-bg.png') center/cover no-repeat;
   }
@@ -107,11 +107,6 @@
     position: relative;
     z-index: 10;
     width: 100%;
-  }
-  #hero .stat-ticker {
-    flex-shrink: 0;
-    position: relative;
-    z-index: 10;
   }
   .hero-grid-lines {
     position: absolute;
@@ -133,7 +128,7 @@
   .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 48px 24px;
+    padding: 100px 48px 80px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
@@ -976,9 +971,6 @@
   <div class="hero-grid-lines"></div>
   <div class="hero-glow"></div>
 
-  <!-- Spacer: absorbs space above content so headline never clips under nav — exact detailing template pattern -->
-  <div style="flex:1; min-height:6rem;"></div>
-
   <div class="hero-content-wrap">
     <div class="hero-inner">
       <div class="hero-text">
@@ -1010,9 +1002,10 @@
       </div>
     </div>
   </div>
+</section>
 
-  <!-- STAT TICKER — anchored to bottom of hero, visible on load -->
-  <div class="stat-ticker">
+<!-- STAT TICKER — standalone full-width band directly below hero -->
+<div class="stat-ticker">
     <div class="marquee-viewport">
       <div class="marquee-track" id="marquee-stats">
         <div class="stat-pill"><div class="stat-pill-num">$0</div><div class="stat-pill-label">Setup Fee · Ever</div><div class="stat-pill-dot"></div></div>
@@ -1032,7 +1025,6 @@
       </div>
     </div>
   </div>
-</section>
 
 
 <!-- TRUST BAR -->
