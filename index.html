@@ -1031,8 +1031,14 @@
     .nav-hamburger { display: flex; }
     .mobile-menu { display: flex; }
     section { padding: 72px 24px; }
-    .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 110px 24px 100px; }
+    /* Mobile: let hero grow with content so ticker is never clipped */
+    #hero { height: auto; min-height: 100vh; display: flex; flex-direction: column; }
+    .hero-content-wrap { flex: 1; display: flex; align-items: center; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 110px 24px 40px; }
     .hero-photo-wrap { display: none; }
+    .stat-ticker { position: static; padding: 18px 0; }
+    .stat-pill { padding: 0 28px; gap: 12px; }
+    .stat-pill-num { font-size: 1.5rem; }
     .hero-stats { gap: 24px; }
     .about-grid,
     .contact-grid,
