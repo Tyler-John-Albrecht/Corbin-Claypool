@@ -87,6 +87,12 @@
     background: linear-gradient(rgba(11,29,51,0.72), rgba(11,29,51,0.72)), url('hero-bg.png') center/cover no-repeat;
     position: relative;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hero-content-wrap {
+    flex: 1;
+    display: flex;
     align-items: center;
     overflow: hidden;
   }
@@ -855,7 +861,65 @@
     margin-top: 3px;
   }
 
+  /* ── MOBILE STICKY CTA BAR ── */
+  #sticky-apply {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 200;
+    background: var(--navy);
+    border-top: 1px solid rgba(201,168,76,0.3);
+    padding: 14px 24px;
+    padding-bottom: calc(14px + env(safe-area-inset-bottom));
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  #sticky-apply.visible { transform: translateY(0); }
+  .sticky-apply-text {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+  .sticky-apply-text strong {
+    display: block;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .sticky-apply-btn {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER IG ICON ── */
+  .footer-ig-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+    margin-top: 8px;
+  }
+  .footer-ig-link:hover { color: var(--gold); }
+  .footer-ig-link svg { flex-shrink: 0; }
+
   @media (max-width: 900px) {
+    #sticky-apply { display: flex; }
     nav { padding: 18px 24px; }
     .nav-links { display: none; }
     section { padding: 72px 24px; }
@@ -895,134 +959,75 @@
 <section id="hero">
   <div class="hero-grid-lines"></div>
   <div class="hero-glow"></div>
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-eyebrow">Fresno, CA · NMLS #1227308</div>
-      <h1 class="hero-h1">Your Home.<br/>Your <em>Investment.</em><br/>Your Advantage.</h1>
-      <p class="hero-sub">Corbin Claypool helps Fresno families buy smarter, build wealth through real estate, and navigate the mortgage process without the confusion.</p>
-      <div class="hero-actions">
-        <a href="https://www.veromortgage.com/corbin/" target="_blank" class="btn-primary">Apply Now</a>
-        <a href="#about" class="btn-ghost">Learn More</a>
+  <div class="hero-content-wrap">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Fresno, CA · NMLS #1227308</div>
+        <h1 class="hero-h1">Your Home.<br/>Your <em>Investment.</em><br/>Your Advantage.</h1>
+        <p class="hero-sub">Corbin Claypool helps Fresno families buy smarter, build wealth through real estate, and navigate the mortgage process without the confusion.</p>
+        <div class="hero-actions">
+          <a href="https://www.veromortgage.com/corbin/" target="_blank" class="btn-primary">Apply Now</a>
+          <a href="#about" class="btn-ghost">Learn More</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">6K+</div>
+            <div class="stat-label">Instagram Followers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">CA</div>
+            <div class="stat-label">Licensed & Local</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">Vero</div>
+            <div class="stat-label">Mortgage Partner</div>
+          </div>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num">6K+</div>
-          <div class="stat-label">Instagram Followers</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">CA</div>
-          <div class="stat-label">Licensed & Local</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">Vero</div>
-          <div class="stat-label">Mortgage Partner</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-photo-wrap">
-      <div class="hero-photo-frame">
-        <div class="hero-photo-bg"></div>
-        <!-- REPLACE src with Corbin's headshot URL or uploaded image -->
-        <img
-          class="hero-photo-img"
-          src="corbin-headshot.png"
-          alt="Corbin Claypool — Loan Officer, Fresno CA"
-          onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#0B1D33)';this.removeAttribute('src')"
-        />
-        <div class="hero-photo-badge">
-          <div class="badge-icon">🏠</div>
-          <div class="badge-text">
-            <strong>Vero Mortgage</strong>
-            <span>Loan Officer</span>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <div class="hero-photo-bg"></div>
+          <img
+            class="hero-photo-img"
+            src="corbin-headshot.png"
+            alt="Corbin Claypool — Loan Officer, Fresno CA"
+            onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#0B1D33)';this.removeAttribute('src')"
+          />
+          <div class="hero-photo-badge">
+            <div class="badge-icon">🏠</div>
+            <div class="badge-text">
+              <strong>Vero Mortgage</strong>
+              <span>Loan Officer</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- STAT TICKER -->
-<div class="stat-ticker">
-  <div class="marquee-viewport">
-    <div class="marquee-track" id="marquee-stats">
-
-      <!-- SET 1 -->
-      <div class="stat-pill">
-        <div class="stat-pill-num">$0</div>
-        <div class="stat-pill-label">Setup Fee · Ever</div>
-        <div class="stat-pill-dot"></div>
+  <!-- STAT TICKER — anchored to bottom of hero, visible on load -->
+  <div class="stat-ticker">
+    <div class="marquee-viewport">
+      <div class="marquee-track" id="marquee-stats">
+        <div class="stat-pill"><div class="stat-pill-num">$0</div><div class="stat-pill-label">Setup Fee · Ever</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">48 HRS</div><div class="stat-pill-label">Average Pre-Approval Time</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">NMLS #1227308</div><div class="stat-pill-label">Licensed in California</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">6K+</div><div class="stat-pill-label">Followers Educated on IG</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">FRESNO, CA</div><div class="stat-pill-label">Central Valley's Trusted LO</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">FHA · VA · CONV</div><div class="stat-pill-label">All Loan Types Available</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">VERO MTG</div><div class="stat-pill-label">Backed by a Trusted Lender</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">$0</div><div class="stat-pill-label">Setup Fee · Ever</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">48 HRS</div><div class="stat-pill-label">Average Pre-Approval Time</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">NMLS #1227308</div><div class="stat-pill-label">Licensed in California</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">6K+</div><div class="stat-pill-label">Followers Educated on IG</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">FRESNO, CA</div><div class="stat-pill-label">Central Valley's Trusted LO</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">FHA · VA · CONV</div><div class="stat-pill-label">All Loan Types Available</div><div class="stat-pill-dot"></div></div>
+        <div class="stat-pill"><div class="stat-pill-num">VERO MTG</div><div class="stat-pill-label">Backed by a Trusted Lender</div><div class="stat-pill-dot"></div></div>
       </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">48 HRS</div>
-        <div class="stat-pill-label">Average Pre-Approval Time</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">NMLS #1227308</div>
-        <div class="stat-pill-label">Licensed in California</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">6K+</div>
-        <div class="stat-pill-label">Followers Educated on IG</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">FRESNO, CA</div>
-        <div class="stat-pill-label">Central Valley's Trusted LO</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">FHA · VA · CONV</div>
-        <div class="stat-pill-label">All Loan Types Available</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">VERO MTG</div>
-        <div class="stat-pill-label">Backed by a Trusted Lender</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-
-      <!-- SET 2 — exact duplicate for seamless loop -->
-      <div class="stat-pill">
-        <div class="stat-pill-num">$0</div>
-        <div class="stat-pill-label">Setup Fee · Ever</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">48 HRS</div>
-        <div class="stat-pill-label">Average Pre-Approval Time</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">NMLS #1227308</div>
-        <div class="stat-pill-label">Licensed in California</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">6K+</div>
-        <div class="stat-pill-label">Followers Educated on IG</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">FRESNO, CA</div>
-        <div class="stat-pill-label">Central Valley's Trusted LO</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">FHA · VA · CONV</div>
-        <div class="stat-pill-label">All Loan Types Available</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">VERO MTG</div>
-        <div class="stat-pill-label">Backed by a Trusted Lender</div>
-        <div class="stat-pill-dot"></div>
-      </div>
-
     </div>
   </div>
-</div>
+</section>
+
 
 <!-- TRUST BAR -->
 <div class="trust-bar">
@@ -1386,9 +1391,15 @@
           <a href="https://www.veromortgage.com/corbin/" target="_blank">veromortgage.com/corbin</a>
         </div>
         <div class="contact-social">
-          <a href="http://Instagram.com/CorbinClaypool" target="_blank" class="social-btn" title="Instagram">📸</a>
-          <a href="http://Youtube.com/CorbinClaypool" target="_blank" class="social-btn" title="YouTube">▶️</a>
-          <a href="https://everythingaboutmortgage.com" target="_blank" class="social-btn" title="Website">🌐</a>
+          <a href="http://instagram.com/CorbinClaypool" target="_blank" class="social-btn" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="http://youtube.com/CorbinClaypool" target="_blank" class="social-btn" title="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="#07121F"/></svg>
+          </a>
+          <a href="https://everythingaboutmortgage.com" target="_blank" class="social-btn" title="Website">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </a>
         </div>
       </div>
       <div class="contact-form">
@@ -1438,7 +1449,11 @@
   <a href="#hero" class="footer-logo">Corbin <span>Claypool</span></a>
   <div class="footer-legal">
     © 2026 Corbin Claypool · Loan Officer at Vero Mortgage<br/>
-    NMLS #1227308 · Licensed in California
+    NMLS #1227308 · Licensed in California<br/>
+    <a href="http://instagram.com/CorbinClaypool" target="_blank" class="footer-ig-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      @corbinclaypool
+    </a>
   </div>
   <div class="footer-nmls">
     9499 N Fort Washington Rd, Suite 103<br/>
@@ -1446,12 +1461,27 @@
   </div>
 </footer>
 
+<!-- MOBILE STICKY APPLY NOW BAR -->
+<div id="sticky-apply">
+  <div class="sticky-apply-text">
+    <strong>Ready to get started?</strong>
+    No setup fee. Pre-approval in 48 hrs.
+  </div>
+  <a href="https://www.veromortgage.com/corbin/" target="_blank" class="sticky-apply-btn">Apply Now</a>
+</div>
+
 <script>
   // Sticky nav on scroll
   const navbar = document.getElementById('navbar');
+  const stickyBar = document.getElementById('sticky-apply');
+  const heroSection = document.getElementById('hero');
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
+    const scrollY = window.scrollY || window.pageYOffset;
+    navbar.classList.toggle('scrolled', scrollY > 60);
+    if (stickyBar && heroSection) {
+      stickyBar.classList.toggle('visible', scrollY >= heroSection.offsetHeight * 0.85);
+    }
+  }, { passive: true });
 
   // ── Marquee RAF engine — deltaTime-based, frame-rate independent ──
   function initMarquee(trackId, pxPerSecond) {
